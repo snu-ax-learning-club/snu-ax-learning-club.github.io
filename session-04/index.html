@@ -231,7 +231,7 @@
 </tr>
 <tr class="odd">
 <td>실습</td>
-<td>브랜치 생성, 첫 commit/push, 팀별 산출물 작성</td>
+<td><code>CLAUDE.md</code> 작성 전후 비교, 팀별 산출물 작성</td>
 </tr>
 </tbody>
 </table>
@@ -527,10 +527,46 @@
 </tbody>
 </table>
 <p><br></p>
-<p>그리고 이것을 본인 브랜치에 commit/push 합니다.</p>
+<p>git 정리는 수정이 끝난 뒤 별도 단계로 다룹니다.</p>
 <p><br></p>
 <blockquote>
-<p>오늘부터 본인 작업이 GitHub 에 올라갑니다. 단, 본인 브랜치에만 올립니다.</p>
+<p>오늘의 핵심은 먼저 <strong>CLAUDE.md 전후 결과 차이</strong> 를 체감하는 것입니다. 브랜치·커밋·push 는 산출물을 확인한 뒤 해도 늦지 않습니다.</p>
+</blockquote>
+</section>
+<section id="cowork-를-여는-위치-2가지" class="slide level2">
+<h2>Cowork 를 여는 위치 2가지</h2>
+<p><br></p>
+<p>오늘은 같은 저장소를 두 가지 방식으로 엽니다.</p>
+<p><br></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>열 위치</th>
+<th>언제 쓰나</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>저장소 전체</td>
+<td>git 상태 확인, 브랜치, commit</td>
+<td>저장소 전체 변경을 봐야 함</td>
+</tr>
+<tr class="even">
+<td>각자 프로젝트 폴더</td>
+<td><code>CLAUDE.md</code> 작성과 테스트</td>
+<td>프로젝트 맥락만 집중해서 읽기 좋음</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<blockquote>
+<p>git 작업은 <strong>저장소 전체</strong> 를 연 Cowork 에서, <code>CLAUDE.md</code> 실험은 <strong>각자 프로젝트 폴더</strong> 를 연 Cowork 에서 진행합니다.</p>
 </blockquote>
 </section>
 <section id="오늘은-claude.md-부터" class="slide level2">
@@ -639,8 +675,7 @@
 </table>
 <p><br></p>
 <blockquote>
-<p>보고서·결재·검토용으로는 좋습니다.<br>
-하지만 항목이 늘어나면 컬럼이 계속 바뀝니다.</p>
+<p>보고서·결재·검토용으로는 좋습니다. 하지만 항목이 늘어나면 컬럼이 계속 바뀝니다.</p>
 </blockquote>
 </section>
 <section id="long-예시-분석용" class="slide level2">
@@ -707,8 +742,7 @@
 <section id="왜-long-을-기본값으로-하나" class="slide level2">
 <h2>왜 Long 을 기본값으로 하나</h2>
 <p><br></p>
-<p>W4 의 목표는 예쁜 표가 아니라<br>
-<strong>다시 검증하고 다시 쓸 수 있는 표</strong> 입니다.</p>
+<p>W4 의 목표는 예쁜 표가 아니라 <strong>다시 검증하고 다시 쓸 수 있는 표</strong> 입니다.</p>
 <p><br></p>
 <table class="caption-top">
 <thead>
@@ -743,8 +777,7 @@
 </table>
 <p><br></p>
 <blockquote>
-<p>원본 Wide 는 그대로 보존하고,<br>
-분석용 Long 을 파생 산출물로 만듭니다.</p>
+<p>원본 Wide 는 그대로 보존하고, 분석용 Long 을 파생 산출물로 만듭니다.</p>
 </blockquote>
 </section>
 <section id="검증-전략을-먼저-씁니다" class="slide level2">
@@ -819,23 +852,87 @@
 <h1>실습 — 공통 작업</h1>
 
 </section>
-<section id="step-1-본인-브랜치-만들기" class="slide level2">
-<h2>Step 1 — 본인 브랜치 만들기</h2>
+<section id="먼저-프로젝트-폴더-열기" class="slide level2">
+<h2>먼저 프로젝트 폴더 열기</h2>
 <p><br></p>
-<p>Cowork 채팅창에 그대로 입력:</p>
+<p><code>CLAUDE.md</code> 전후 비교는 각자 프로젝트 폴더에서 진행합니다.</p>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>내 프로젝트 폴더에서 본인 작업용 브랜치를 만들고 싶어.</span>
-<span id="cb6-2"><a href=""></a>브랜치명은 폴더명과 같게 해줘.</span>
-<span id="cb6-3"><a href=""></a>git status 부터 보여 주고 한 단계씩 진행해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>사람</th>
+<th>Cowork 에서 열 폴더</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>project-perfdata 팀</td>
+<td><code>projects/project-perfdata/</code></td>
+</tr>
+<tr class="even">
+<td>project-budget-nlq 팀</td>
+<td><code>projects/project-budget-nlq/</code></td>
+</tr>
+<tr class="odd">
+<td>project-utility-billing 팀</td>
+<td><code>projects/project-utility-billing/</code></td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <blockquote>
-<p>브랜치명은 코치가 1:1 안내합니다. <code>project-perfdata</code> / <code>project-budget-nlq</code> / <code>project-utility-billing</code></p>
+<p>저장소 전체를 열면 다른 폴더까지 보여서 처음 실습에는 복잡합니다. <code>CLAUDE.md</code> 테스트는 프로젝트 폴더 안에서 작게 시작합니다.</p>
 </blockquote>
 </section>
-<section id="step-2-첫-claude.md" class="slide level2">
-<h2>Step 2 — 첫 <code>CLAUDE.md</code></h2>
+<section id="step-1-claude.md-없이-먼저-요청" class="slide level2">
+<h2>Step 1 — <code>CLAUDE.md</code> 없이 먼저 요청</h2>
 <p><br></p>
-<p>빈 파일을 혼자 쓰지 않습니다. 대화로 초안을 만들고, 사람이 한 줄씩 고칩니다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>이 프로젝트 폴더의 README.md 와 attachments/ 를 읽고,</span>
+<span id="cb6-2"><a href=""></a>오늘 만들 수 있는 작은 구조화 산출물 하나를 제안해줘.</span>
+<span id="cb6-3"><a href=""></a>결과 파일 모양과 확인 방법도 함께 말해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>이때 일부러 프로젝트별 <code>CLAUDE.md</code> 는 아직 만들지 않습니다.</p>
+<p><br></p>
+<blockquote>
+<p>첫 결과는 “틀렸다” 고 보기보다, 어떤 맥락이 부족했는지 찾기 위한 기준점입니다.</p>
+</blockquote>
+</section>
+<section id="step-2-빠진-맥락-표시" class="slide level2">
+<h2>Step 2 — 빠진 맥락 표시</h2>
+<p><br></p>
+<p>첫 결과를 보며 아래 항목을 한 줄씩 표시합니다.</p>
+<p><br></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>볼 것</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>빠진 맥락</td>
+<td>어떤 파일이 원본인지 불분명함</td>
+</tr>
+<tr class="even">
+<td>애매한 용어</td>
+<td>예산액 / 예산현액을 구분하지 않음</td>
+</tr>
+<tr class="odd">
+<td>결과 양식</td>
+<td>wide 와 long-format 이 섞임</td>
+</tr>
+<tr class="even">
+<td>검증 기준</td>
+<td>합계·행 수 기준이 없음</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="step-3-짧은-claude.md-작성" class="slide level2">
+<h2>Step 3 — 짧은 <code>CLAUDE.md</code> 작성</h2>
+<p><br></p>
+<p>빈 파일을 혼자 쓰지 않습니다. 첫 결과에서 부족했던 점을 바탕으로 대화로 초안을 만듭니다.</p>
 <p><br></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>이 폴더의 README.md 와 attachments/ 를 다시 읽어 본 뒤,</span>
 <span id="cb7-2"><a href=""></a>이 프로젝트에서 자주 하게 될 작업, 도메인 용어,</span>
@@ -845,12 +942,84 @@
 <span id="cb7-6"><a href=""></a>도구에 종속되지 않는 표현으로 적어줘.</span>
 <span id="cb7-7"><a href=""></a>내가 한 줄씩 검토하면서 고칠 수 있게 해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="step-3-첫-commit" class="slide level2">
-<h2>Step 3 — 첫 commit</h2>
+<section id="step-4-같은-요청-다시-실행" class="slide level2">
+<h2>Step 4 — 같은 요청 다시 실행</h2>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>방금 만든 CLAUDE.md 를 커밋하고 싶어.</span>
-<span id="cb8-2"><a href=""></a>git status 와 git diff 를 먼저 보여 주고,</span>
-<span id="cb8-3"><a href=""></a>커밋 메시지를 제안해줘. 내가 승인하면 커밋해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>CLAUDE.md</code> 를 만든 뒤 같은 작업을 다시 요청합니다.</p>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>방금 만든 CLAUDE.md 를 반영해서,</span>
+<span id="cb8-2"><a href=""></a>처음과 같은 작은 구조화 산출물 제안을 다시 해줘.</span>
+<span id="cb8-3"><a href=""></a>아까 결과와 무엇이 달라졌는지도 함께 비교해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>가능하면 새 채팅에서 같은 폴더를 다시 열어 시도해 봅니다. 새 채팅이 어렵다면 같은 대화 안에서 비교해도 충분합니다.</p>
+</section>
+<section id="step-5-전후-비교-메모" class="slide level2">
+<h2>Step 5 — 전후 비교 메모</h2>
+<p><br></p>
+<p>긴 보고서가 아니라 짧은 메모면 됩니다.</p>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="fu"># before_after.md</span></span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="ss">- </span>CLAUDE.md 작성 전:</span>
+<span id="cb9-4"><a href=""></a><span class="ss">- </span>CLAUDE.md 에 추가한 맥락:</span>
+<span id="cb9-5"><a href=""></a><span class="ss">- </span>CLAUDE.md 작성 후:</span>
+<span id="cb9-6"><a href=""></a><span class="ss">- </span>달라진 점:</span>
+<span id="cb9-7"><a href=""></a><span class="ss">- </span>아직 사람이 확인해야 할 점:</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<blockquote>
+<p>오늘의 공통 실습 결과는 <code>CLAUDE.md</code> 와 짧은 전후 비교 메모입니다.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="git으로-버전-관리하기" class="title-slide slide level1 center">
+<h1>Git으로 버전 관리하기</h1>
+
+</section>
+<section id="git-은-저장소-전체에서" class="slide level2">
+<h2>git 은 저장소 전체에서</h2>
+<p><br></p>
+<p>브랜치와 commit 은 각자 프로젝트 폴더가 아니라 <strong>저장소 전체를 연 Cowork</strong> 에서 진행합니다.</p>
+<p><br></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>해야 할 일</th>
+<th>Cowork 에서 열 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>CLAUDE.md</code> 만들기·테스트</td>
+<td>각자 프로젝트 폴더</td>
+</tr>
+<tr class="even">
+<td><code>git status</code>, 브랜치, commit</td>
+<td>저장소 전체</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<blockquote>
+<p>git 은 저장소 전체의 변경을 다루기 때문에 루트 폴더를 열어야 상태 확인과 commit 이 자연스럽습니다.</p>
+</blockquote>
+</section>
+<section id="브랜치-만들기" class="slide level2">
+<h2>브랜치 만들기</h2>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>저장소 전체를 연 상태에서 본인 작업용 브랜치를 만들고 싶어.</span>
+<span id="cb10-2"><a href=""></a>브랜치명은 폴더명과 같게 해줘.</span>
+<span id="cb10-3"><a href=""></a>git status 부터 보여 주고 한 단계씩 진행해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<blockquote>
+<p>브랜치명은 코치가 1:1 안내합니다. <code>project-perfdata</code> / <code>project-budget-nlq</code> / <code>project-utility-billing</code></p>
+</blockquote>
+</section>
+<section id="변경-확인과-commit" class="slide level2">
+<h2>변경 확인과 commit</h2>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>방금 만든 CLAUDE.md 와 비교 메모를 커밋하고 싶어.</span>
+<span id="cb11-2"><a href=""></a>git status 와 git diff 를 먼저 보여 주고,</span>
+<span id="cb11-3"><a href=""></a>커밋 메시지를 제안해줘. 내가 승인하면 커밋해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <ul>
 <li>먼저 diff 를 확인합니다.</li>
@@ -862,10 +1031,8 @@
 <p><code>git add -A</code> 처럼 모든 파일을 한꺼번에 담지 않습니다. 어떤 파일을 커밋하는지 확인합니다.</p>
 </blockquote>
 </section>
-<section id="step-4-첫-push" class="slide level2">
-<h2>Step 4 — 첫 push</h2>
-<p><br></p>
-<p>push 는 GitHub Desktop 에서 합니다.</p>
+<section id="push-는-github-desktop-에서" class="slide level2">
+<h2>push 는 GitHub Desktop 에서</h2>
 <p><br></p>
 <ol type="1">
 <li><strong>Current branch</strong> 가 본인 브랜치인지 확인</li>
@@ -899,12 +1066,12 @@
 <section id="팀-a-요청-예시" class="slide level2">
 <h2>팀 A — 요청 예시</h2>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>attachments/4. (학습예시)... 사업계획서.pdf 를 페이지 이미지로 읽고,</span>
-<span id="cb9-2"><a href=""></a>attachments/2. 국고출연금 사업계획서 서식.pdf 의 칸 구조를 헤더로 삼아</span>
-<span id="cb9-3"><a href=""></a>사업 1건을 long-format CSV 로 추출해줘.</span>
-<span id="cb9-4"><a href=""></a>한 행 = (사업코드, 항목명, 값) 모양으로.</span>
-<span id="cb9-5"><a href=""></a>추출 전에 (1) 어떤 칸을 어떤 항목명으로 볼지 매핑표,</span>
-<span id="cb9-6"><a href=""></a>(2) 결과가 맞는지 어떻게 확인할지 검증 기준을 먼저 보여줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>attachments/4. (학습예시)... 사업계획서.pdf 를 페이지 이미지로 읽고,</span>
+<span id="cb12-2"><a href=""></a>attachments/2. 국고출연금 사업계획서 서식.pdf 의 칸 구조를 헤더로 삼아</span>
+<span id="cb12-3"><a href=""></a>사업 1건을 long-format CSV 로 추출해줘.</span>
+<span id="cb12-4"><a href=""></a>한 행 = (사업코드, 항목명, 값) 모양으로.</span>
+<span id="cb12-5"><a href=""></a>추출 전에 (1) 어떤 칸을 어떤 항목명으로 볼지 매핑표,</span>
+<span id="cb12-6"><a href=""></a>(2) 결과가 맞는지 어떻게 확인할지 검증 기준을 먼저 보여줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <p>남길 것:</p>
 <p><br></p>
@@ -929,13 +1096,13 @@
 <section id="팀-b-요청-예시" class="slide level2">
 <h2>팀 B — 요청 예시</h2>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>attachments/2025년도 서울대학교 지출예산현황총괄_데이터구조화용 가상숫자_주환철.xlsx 를 읽고,</span>
-<span id="cb10-2"><a href=""></a>2단 병합 헤더를 평탄화한 뒤</span>
-<span id="cb10-3"><a href=""></a>한 행 = (예산부서, 사업코드, 관, 항, 목, 항목, 값) 모양의</span>
-<span id="cb10-4"><a href=""></a>long-format CSV 로 변환해줘.</span>
-<span id="cb10-5"><a href=""></a>변환 전에 (1) 컬럼별 의미를 데이터 사전(.md),</span>
-<span id="cb10-6"><a href=""></a>(2) 원본 합계와 산출 합계를 어떻게 비교할지 검증 기준을 먼저 정리하고</span>
-<span id="cb10-7"><a href=""></a>나한테 확인 받아줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>attachments/2025년도 서울대학교 지출예산현황총괄_데이터구조화용 가상숫자_주환철.xlsx 를 읽고,</span>
+<span id="cb13-2"><a href=""></a>2단 병합 헤더를 평탄화한 뒤</span>
+<span id="cb13-3"><a href=""></a>한 행 = (예산부서, 사업코드, 관, 항, 목, 항목, 값) 모양의</span>
+<span id="cb13-4"><a href=""></a>long-format CSV 로 변환해줘.</span>
+<span id="cb13-5"><a href=""></a>변환 전에 (1) 컬럼별 의미를 데이터 사전(.md),</span>
+<span id="cb13-6"><a href=""></a>(2) 원본 합계와 산출 합계를 어떻게 비교할지 검증 기준을 먼저 정리하고</span>
+<span id="cb13-7"><a href=""></a>나한테 확인 받아줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <p>남길 것:</p>
 <p><br></p>
@@ -967,9 +1134,10 @@
 <ul class="task-list">
 <li><label><input type="checkbox">LLM 의 기억이 대화와 파일에 의존한다는 점을 설명할 수 있다</label></li>
 <li><label><input type="checkbox">같은 요청도 결과가 달라질 수 있음을 이해했다</label></li>
-<li><label><input type="checkbox">본인 프로젝트 브랜치를 만들었다</label></li>
+<li><label><input type="checkbox">Cowork 에서 저장소 전체와 프로젝트 폴더를 언제 여는지 구분할 수 있다</label></li>
 <li><label><input type="checkbox">본인 폴더에 첫 <code>CLAUDE.md</code> 를 적었다</label></li>
-<li><label><input type="checkbox">첫 commit 과 GitHub Desktop push 를 했다</label></li>
+<li><label><input type="checkbox"><code>CLAUDE.md</code> 전후 결과 차이를 설명할 수 있다</label></li>
+<li><label><input type="checkbox">git 정리는 수정 완료 후 별도로 해도 된다는 흐름을 이해했다</label></li>
 <li><label><input type="checkbox">CSV / 데이터 사전 / 양식 매핑 중 하나를 만들었다</label></li>
 <li><label><input type="checkbox">검증 결과를 한 줄 이상 남겼다</label></li>
 </ul>
