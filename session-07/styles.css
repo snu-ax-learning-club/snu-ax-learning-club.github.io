@@ -1,0 +1,62 @@
+.reveal {
+  font-size: 34px;
+}
+
+.reveal table {
+  font-size: 0.78em;
+  table-layout: fixed;
+  width: 88%;
+}
+
+.reveal blockquote {
+  font-size: 0.86em;
+}
+
+.reveal pre {
+  font-size: 0.72em;
+}
+
+.reveal .compare-table table {
+  width: 92%;
+}
+
+.reveal .columns table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.reveal .compare-table th:first-child,
+.reveal .compare-table td:first-child {
+  width: 18%;
+}
+
+.reveal .compare-table th:nth-child(2),
+.reveal .compare-table td:nth-child(2),
+.reveal .compare-table th:nth-child(3),
+.reveal .compare-table td:nth-child(3) {
+  width: 41%;
+}
+
+.reveal .schedule-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.reveal .schedule-table th:first-child,
+.reveal .schedule-table td:first-child {
+  width: 20%;
+  white-space: nowrap;
+}
+
+.reveal .schedule-table th:nth-child(2),
+.reveal .schedule-table td:nth-child(2) {
+  width: 80%;
+}
+
+.reveal .schedule-table col:first-child {
+  width: 20% !important;
+}
+
+.reveal .schedule-table col:nth-child(2) {
+  width: 80% !important;
+}

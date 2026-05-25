@@ -6,7 +6,7 @@
 <script src="slides_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-da78e890a27eeff987ae7706034fb934.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <title>7주차 — 열린재정 데이터 활용</title>
@@ -98,6 +98,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -196,7 +197,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">7주차 — 열린재정 데이터 활용</h1>
-  <p class="subtitle">skill 기반 전처리와 tidy data</p>
+  <p class="subtitle">스킬 기반 전처리와 분석용 Tidy data</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -211,53 +212,135 @@
 <p><br></p>
 <p>학습 저장소와 외부 LLM 환경에서는 그 자료를 안전하게 다룰 수 없습니다.</p>
 <p><br></p>
-<p>그래서 개별 프로젝트는 <strong>지침 작성 연습</strong> 으로 마무리하고, 본격 실습은 <strong>공개 데이터 팀 프로젝트</strong> 로 전환했습니다.</p>
+<p>그래서 개별 프로젝트는 <strong>지침 작성 연습</strong> 으로 마무리하고, 본격 실습은 <strong>팀 프로젝트</strong> 로 전환했습니다.</p>
 </section>
-<section id="열린재정-데이터의-장점" class="slide level2">
-<h2>열린재정 데이터의 장점</h2>
+<section id="지난-교육-리뷰" class="slide level2">
+<h2>지난 교육 리뷰</h2>
 <p><br></p>
-<p>열린재정 데이터는 모두가 같은 자료를 볼 수 있습니다.</p>
+<p>지난 교육에서는 에이전트를 잘 제어하려면 <strong>프로젝트 지침을 파일로 남기는 것</strong> 이 중요하다고 배웠습니다.</p>
+<p><br></p>
+<p><code>CLAUDE.md</code> 또는 <code>AGENTS.md</code> 는 에이전트에게 매번 반복해서 알려줄 맥락입니다.</p>
 <p><br></p>
 <ul>
-<li>공개 데이터라 함께 검토 가능</li>
-<li>수집 조건과 표 구조가 비교적 명확함</li>
-<li>수작업 절차를 자동화하기 좋음</li>
-<li>계산식과 검증 기준을 세우기 좋음</li>
+<li>프로젝트 목적</li>
+<li>사용할 수 있는 자료</li>
+<li>금지할 작업</li>
+<li>검증 기준</li>
 </ul>
 </section>
-<section id="열린질문-테스트-회고" class="slide level2">
-<h2>열린질문 테스트 회고</h2>
+<section id="지침에서-스킬로" class="slide level2">
+<h2>지침에서 스킬로</h2>
 <p><br></p>
-<p>정부 제공 생성형 AI 서비스는 어땠나요?</p>
+<p>오늘은 한 단계 더 나아가, 반복 작업 자체를 묶어 둔 <strong>에이전트 스킬(agent skill)</strong> 을 사용합니다.</p>
 <p><br></p>
-<p>이 서비스의 장단점에 대해 논의합니다.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>CLAUDE.md</code> / <code>AGENTS.md</code></td>
+<td>이 프로젝트에서 일하는 법</td>
+</tr>
+<tr class="even">
+<td>에이전트 스킬</td>
+<td>이 작업을 수행하는 법</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>열린재정 데이터 수집과 tidy CSV 변환은 오늘 스킬이 맡을 반복 작업입니다.</p>
 </section>
-<section id="w6-에-사람이-먼저-한-일" class="slide level2">
-<h2>W6 에 사람이 먼저 한 일</h2>
+<section id="팀플-주제" class="slide level2">
+<h2>팀플 주제</h2>
+<p><br></p>
+<p>5주차에 여러분은 열린재정 데이터를 공동 프로젝트로 골랐습니다.</p>
+<p><br></p>
+<p>이 선택은 AI 에이전트로 업무를 자동화할 때 필요한 조건을 여러 가지 갖고 있습니다.</p>
+</section>
+<section id="왜-좋은-선택이었나" class="slide level2">
+<h2>왜 좋은 선택이었나</h2>
+<p><br></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>좋은 점</th>
+<th>왜 중요한가</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>공개 자료</td>
+<td>모두가 같은 데이터를 보며 함께 검토할 수 있음</td>
+</tr>
+<tr class="even">
+<td>표 구조</td>
+<td>CSV, Excel, Python 으로 이어가기 쉬움</td>
+</tr>
+<tr class="odd">
+<td>반복 조건</td>
+<td>연도, 소관, 회계 등으로 같은 절차를 반복 가능</td>
+</tr>
+<tr class="even">
+<td>검증 가능</td>
+<td>행 수, 합계, 계산식으로 결과를 확인 가능</td>
+</tr>
+<tr class="odd">
+<td>업무 연결성</td>
+<td>예산·결산·집행률 같은 익숙한 질문으로 확장 가능</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="재정-데이터-흐름의-변화" class="slide level2">
+<h2>재정 데이터 흐름의 변화</h2>
+<p><br></p>
+<p>열린재정 주변에도 새로운 흐름이 생기고 있습니다.</p>
+<p><br></p>
+<p><strong>열린 재정, 열린 질문</strong></p>
+<p>질문형 AI 서비스: <a href="https://openfiscaldata.livinai.com" class="uri">https://openfiscaldata.livinai.com</a></p>
+<p><br></p>
+<p><strong>모두의 재정</strong></p>
+<p>중앙재정, 지방재정, 지방교육재정으로 나뉘어 있는 재정정보를 통합하려는 흐름입니다(<a href="https://news.einfomax.co.kr/news/articleView.html?idxno=4377364">링크</a>).</p>
+</section>
+<section id="질문에서-작업-흐름으로" class="slide level2">
+<h2>질문에서 작업 흐름으로</h2>
+<p><br></p>
+<p>질문형 AI 는 무엇을 물어볼지 정리하는 데 도움이 됩니다.</p>
+<p><br></p>
+<p>하지만 업무 산출물이 되려면 답변만으로는 부족합니다.</p>
+<p><br></p>
+<p>원본 데이터, 전처리 과정, 검증 기준이 함께 남아야 합니다.</p>
+<p><br></p>
+<p>그래서 오늘은 질문을 넘어, 반복 가능한 작업 흐름(workflow)을 만듭니다.</p>
+</section>
+<section id="주차에-사람이-먼저-한-일" class="slide level2">
+<h2>6주차에 사람이 먼저 한 일</h2>
 <p><br></p>
 <p>지난주에는 바로 자동화하지 않았습니다.</p>
 <p><br></p>
 <p>사람이 먼저 열린재정 사이트에서 자료를 찾고, 엑셀로 내려받고, 필요한 열과 계산식을 확인했습니다.</p>
 </section>
-<section id="w6-workflow" class="slide level2">
-<h2>W6 workflow</h2>
+<section id="주차-워크플로우" class="slide level2">
+<h2>6주차 워크플로우</h2>
 <p><br></p>
 <p>지난주 사람이 직접 한 일은 세 단계였습니다.</p>
 <p><br></p>
-<p><strong>Step 1.</strong> 열린재정 웹사이트에서 자료를 쿼리하고 엑셀로 다운로드</p>
+<p><strong>1단계.</strong> 열린재정 웹사이트에서 자료 조회·다운로드</p>
 <p><br></p>
-<p><strong>Step 2.</strong> 다운로드한 엑셀 데이터를 피벗 테이블로 변환</p>
+<p><strong>2단계.</strong> 다운로드한 엑셀 데이터를 피벗 테이블로 변환</p>
 <p><br></p>
-<p><strong>Step 3.</strong> 피벗 테이블에서 집행률 계산</p>
-<p><br></p>
-<p>오늘은 이 workflow 를 에이전트가 도울 수 있는 형태로 다시 나눕니다.</p>
+<p><strong>3단계.</strong> 피벗 테이블에서 집행률 계산</p>
 </section>
 <section id="핵심-문장" class="slide level2">
 <h2>핵심 문장</h2>
 <p><br></p>
 <p>사람이 한 일을 자동화하려면,</p>
 <p><br></p>
-<p>먼저 사람이 한 workflow 를 <strong>말로 설명할 수 있어야</strong> 합니다.</p>
+<p>먼저 사람이 한 작업 흐름을 <strong>말로 설명할 수 있어야</strong> 합니다.</p>
 <p><br></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>어디서 데이터를 가져오는가?</span>
 <span id="cb1-2"><a href=""></a>어떤 형태로 바꾸는가?</span>
@@ -265,25 +348,24 @@
 <span id="cb1-4"><a href=""></a>무엇을 계산하면 결과라고 말할 수 있는가?</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <blockquote>
-<p>workflow 가 흐리면 자동화도 흐립니다.</p>
+<p>작업 흐름이 흐리면 자동화도 흐립니다.</p>
 </blockquote>
 </section>
 <section>
-<section id="workflow-를-쪼개기" class="title-slide slide level1 center">
-<h1>1. Workflow 를 쪼개기</h1>
+<section id="작업-흐름-쪼개기" class="title-slide slide level1 center">
+<h1>1. 작업 흐름 쪼개기</h1>
 
 </section>
 <section id="그대로-자동화하기-어려운-이유" class="slide level2">
 <h2>그대로 자동화하기 어려운 이유</h2>
 <p><br></p>
-<p>W6 workflow 는 사람에게는 자연스럽지만, 에이전트에게는 여러 일이 한 덩어리로 섞여 있습니다.</p>
+<p>6주차 워크플로우는 사람에게는 자연스럽지만, 에이전트에게는 여러 일이 한 덩어리로 섞여 있습니다.</p>
 <p><br></p>
 <ul>
-<li>웹사이트에서 조건을 선택한다</li>
-<li>엑셀 파일을 다운로드한다</li>
-<li>표를 피벗 테이블로 바꾼다</li>
-<li>집행률 계산식을 추가한다</li>
-<li>결과를 해석한다</li>
+<li>조건 선택과 파일 다운로드</li>
+<li>피벗 테이블 변환</li>
+<li>집행률 계산식 추가</li>
+<li>결과 해석</li>
 </ul>
 <p><br></p>
 <p>그래서 자동화하려면 <strong>반복 가능한 일</strong> 과 <strong>사람이 판단할 일</strong> 을 나눠야 합니다.</p>
@@ -291,73 +373,159 @@
 <section id="오늘의-분리-기준" class="slide level2">
 <h2>오늘의 분리 기준</h2>
 <p><br></p>
+<div class="compare-table">
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>구분</th>
-<th>에이전트가 맡기 좋은 일</th>
-<th>사람이 맡아야 하는 일</th>
+<th>에이전트</th>
+<th>사람</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>수집</td>
-<td>같은 조건으로 데이터 가져오기</td>
-<td>조건이 업무 목적에 맞는지 판단</td>
+<td>같은 조건 반복 수집</td>
+<td>조건 판단</td>
 </tr>
 <tr class="even">
 <td>전처리</td>
-<td>CSV 형태로 정리하기</td>
-<td>열 의미와 금액 단위 확인</td>
+<td>CSV 형태 정리</td>
+<td>열 의미·금액 단위 확인</td>
 </tr>
 <tr class="odd">
 <td>분석</td>
-<td>계산 후보와 절차 제안</td>
-<td>피벗 구성과 결과 해석</td>
+<td>계산 절차 제안</td>
+<td>피벗 구성·해석</td>
 </tr>
 <tr class="even">
 <td>검증</td>
 <td>행 수·합계 점검</td>
-<td>이상한 결과의 업무적 의미 판단</td>
+<td>이상값 의미 판단</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<blockquote>
-<p>에이전트가 하는 일은 반복이고, 사람이 하는 일은 판단입니다.</p>
-</blockquote>
+</div>
 </section>
 <section id="데이터-형태도-바꿉니다" class="slide level2">
 <h2>데이터 형태도 바꿉니다</h2>
 <p><br></p>
-<p>W6 에서는 엑셀 파일을 바로 피벗 테이블로 만들었습니다.</p>
+<p>6주차에는 엑셀 파일을 바로 피벗 테이블로 만들었습니다.</p>
 <p><br></p>
-<p>W7 에서는 중간에 <strong>tidy CSV</strong> 를 둡니다.</p>
+<p>7주차에는 중간에 <strong>tidy CSV</strong> 를 둡니다.</p>
 <p><br></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>열린재정 데이터</span>
-<span id="cb2-2"><a href=""></a>  -&gt; raw bundle</span>
-<span id="cb2-3"><a href=""></a>  -&gt; tidy CSV</span>
-<span id="cb2-4"><a href=""></a>  -&gt; Excel 피벗 테이블</span>
-<span id="cb2-5"><a href=""></a>  -&gt; 집행률 분석</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href=""></a>  -&gt; 원본 묶음(raw)</span>
+<span id="cb2-3"><a href=""></a>  -&gt; 전처리된 분석용 CSV(processed tidy CSV)</span>
+<span id="cb2-4"><a href=""></a>  -&gt; 분석 산출물(derived)</span>
+<span id="cb2-5"><a href=""></a>  -&gt; 엑셀 피벗 / 보고서</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
-<p>CSV 는 엑셀에서도 열 수 있고, 에이전트도 다시 읽기 쉽습니다.</p>
+<p>전처리된 분석용 CSV(processed tidy CSV)는 사람이 분석을 시작하는 기준 파일입니다.</p>
+<p>보고서처럼 꾸민 표가 아니라, 피벗·필터·차트·코드가 다시 읽기 쉬운 표입니다.</p>
+</section>
+<section id="tidy-data-란-무엇인가" class="slide level2">
+<h2>Tidy data 란 무엇인가</h2>
+<p><br></p>
+<p>Tidy data, 즉 분석하기 좋게 전처리된 데이터는 사람이 보기 좋은 보고서 표가 아니라, 분석과 자동화에 다시 쓰기 좋은 표입니다.</p>
+<p><br></p>
+<p>기본 생각은 단순합니다.</p>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>한 행 = 하나의 관측값</span>
+<span id="cb3-2"><a href=""></a>한 열 = 하나의 변수</span>
+<span id="cb3-3"><a href=""></a>한 셀 = 하나의 값</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>그래서 피벗 테이블, 필터, 집계, 차트로 이어가기 쉽습니다.</p>
+</section>
+<section id="tidy-data-예시" class="slide level2">
+<h2>Tidy data 예시</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>Tidy 하지 않은 표</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>회계명</th>
+<th style="text-align: right;">2022</th>
+<th style="text-align: right;">2023</th>
+<th style="text-align: right;">2024</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>일반회계</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="even">
+<td>특별회계</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+<p>연도가 열 이름에 들어가 있습니다.</p>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+<p><strong>Tidy data</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>회계명</th>
+<th style="text-align: right;">회계연도</th>
+<th style="text-align: right;">지출순액</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>일반회계</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td>일반회계</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">120</td>
+</tr>
+<tr class="odd">
+<td>일반회계</td>
+<td style="text-align: right;">2024</td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="even">
+<td>특별회계</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td>특별회계</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="even">
+<td>특별회계</td>
+<td style="text-align: right;">2024</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+<p>연도와 금액이 각각 열로 분리됩니다.</p>
+</div></div>
 </section></section>
 <section>
-<section id="준비한-4가지-skill" class="title-slide slide level1 center">
-<h1>2. 준비한 4가지 skill</h1>
+<section id="준비한-4가지-스킬" class="title-slide slide level1 center">
+<h1>2. 준비한 4가지 스킬</h1>
 
 </section>
-<section id="가지-skill-안내와-조율" class="slide level2">
-<h2>4가지 skill: 안내와 조율</h2>
+<section id="가지-스킬-안내와-조율" class="slide level2">
+<h2>4가지 스킬: 안내와 조율</h2>
 <p><br></p>
-<p>오늘은 skill 이름을 외우는 시간이 아닙니다.</p>
+<p>오늘은 스킬 이름을 외우는 시간이 아닙니다.</p>
 <p><br></p>
-<p>각 skill 이 workflow 의 어느 부분을 맡는지만 알면 됩니다.</p>
+<p>각 스킬이 작업 흐름의 어느 부분을 맡는지만 알면 됩니다.</p>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:48%;">
@@ -374,30 +542,30 @@
 <p>수집, 전처리, 분석 설계 중 어느 단계가 필요한지 판단합니다.</p>
 </div></div>
 </section>
-<section id="가지-skill-수집과-변환" class="slide level2">
-<h2>4가지 skill: 수집과 변환</h2>
+<section id="가지-스킬-수집과-변환" class="slide level2">
+<h2>4가지 스킬: 수집과 변환</h2>
 <p><br></p>
-<p>반복 가능한 데이터 준비는 두 skill 이 맡습니다.</p>
+<p>반복 가능한 데이터 준비는 두 스킬이 맡습니다.</p>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:48%;">
 <p><strong>열린재정 자료 수집</strong></p>
 <p><code>open-fiscal-settlement-fetcher</code></p>
 <p><br></p>
-<p>열린재정 데이터를 가져오고 raw bundle 을 남깁니다.</p>
+<p>열린재정 데이터를 가져오고 원본 묶음(raw)을 남깁니다.</p>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
 <p><strong>tidy CSV 변환</strong></p>
 <p><code>open-fiscal-settlement-processor</code></p>
 <p><br></p>
-<p>raw 데이터를 엑셀에서 열 수 있는 tidy CSV 로 바꿉니다.</p>
+<p>원본(raw) 데이터를 엑셀에서 열 수 있는 tidy CSV 로 바꿉니다.</p>
 </div></div>
 </section>
-<section id="skill-이-해주는-범위" class="slide level2">
-<h2>Skill 이 해주는 범위</h2>
+<section id="스킬이-해주는-범위" class="slide level2">
+<h2>스킬이 해주는 범위</h2>
 <p><br></p>
-<p>오늘 skill 로 할 수 있는 일은 여기까지입니다.</p>
+<p>오늘 스킬로 할 수 있는 일은 여기까지입니다.</p>
 <p><br></p>
 <ul>
 <li>열린재정 웹사이트/API 에서 필요한 데이터를 가져온다</li>
@@ -405,56 +573,79 @@
 <li>엑셀에서 열 수 있는 <code>tidy CSV</code> 파일로 변환한다</li>
 <li>수집 조건, 행 수, 합계 같은 검증 정보를 남긴다</li>
 </ul>
-<p><br></p>
-<blockquote>
-<p>skill 의 목표는 “보고서 완성” 이 아니라 <strong>분석 가능한 표 만들기</strong> 입니다.</p>
-</blockquote>
 </section>
-<section id="학습자가-이어서-할-일" class="slide level2">
-<h2>학습자가 이어서 할 일</h2>
+<section id="전처리-데이터-이후" class="slide level2">
+<h2>전처리 데이터 이후</h2>
 <p><br></p>
-<p>CSV 가 만들어진 뒤부터는 사람이 엑셀에서 이어갑니다.</p>
+<p>전처리된 분석용 CSV(processed tidy CSV)는 분석의 끝이 아니라 시작점입니다.</p>
 <p><br></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th>단계</th>
-<th>학습자가 할 일</th>
+<th>할 일</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Step 2</td>
-<td>CSV 를 열고 피벗 테이블 만들기</td>
+<td>1. 분석</td>
+<td>피벗, 차트, 요약표로 질문을 탐색</td>
 </tr>
 <tr class="even">
-<td>Step 3</td>
-<td>집행률 계산 또는 분석 항목 추가</td>
+<td>2. 결과물 결정</td>
+<td>보고서·대시보드·반복 분석표 중 산출물 선택</td>
 </tr>
 <tr class="odd">
-<td>검토</td>
-<td>결과가 업무적으로 말이 되는지 확인</td>
+<td>3. 작업 흐름 정리</td>
+<td>반복할 절차와 검증 기준 확정</td>
 </tr>
 <tr class="even">
-<td>확장</td>
-<td>다음 분석 질문 정하기</td>
+<td>4. 스킬 전환</td>
+<td>확정된 작업 흐름을 에이전트 스킬로 만들기</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<p>오늘 자동화는 학습자를 대체하지 않습니다. 학습자가 분석을 시작할 수 있는 표를 준비합니다.</p>
 </section></section>
 <section>
 <section id="오늘의-데모" class="title-slide slide level1 center">
 <h1>3. 오늘의 데모</h1>
 
 </section>
+<section id="오늘-데모의-범위" class="slide level2">
+<h2>오늘 데모의 범위</h2>
+<p><br></p>
+<p>프로젝트 전체 기준은 <strong>2022-2024년 세출/지출 결산현황</strong> 입니다.</p>
+<p><br></p>
+<p>오늘 데모는 API 호출을 줄이기 위해 범위를 작게 잡습니다.</p>
+<p><br></p>
+<p><strong>2024년 교육부 데이터</strong> 만으로 작업 흐름을 확인합니다.</p>
+</section>
+<section id="실행-전-준비" class="slide level2">
+<h2>실행 전 준비</h2>
+<p><br></p>
+<p>오늘 실습은 먼저 스킬 저장소를 준비한 뒤 시작합니다.</p>
+<p><br></p>
+<ol type="1">
+<li>GitHub Desktop 에서 <a href="https://github.com/snu-ax-learning-club/korea-fiscal-skills">snu-ax-learning-club/korea-fiscal-skills</a> 저장소 복제(clone)</li>
+<li>Claude Desktop 에서 Code 탭으로 이동</li>
+<li>복제한 <code>korea-fiscal-skills</code> 폴더를 Claude Code 프로젝트로 열기</li>
+<li><code>.env</code> 에 <code>OPENFISCALDATA_API_KEY</code> 설정</li>
+</ol>
+<p>오늘은 <code>.claude/skills</code> 를 읽을 수 있는 Claude Code 환경에서 실행합니다.</p>
+</section>
+<section id="실행-전-확인" class="slide level2">
+<h2>실행 전 확인</h2>
+<p><br></p>
+<p>API key 는 민감한 정보입니다.</p>
+<p><br></p>
+<ul>
+<li>API key 값은 슬라이드나 채팅에 남기지 않습니다.</li>
+<li>API key 값은 GitHub 에 커밋하지 않습니다.</li>
+<li><code>.env</code> 파일은 로컬 설정으로만 사용합니다.</li>
+</ul>
+</section>
 <section id="데모-흐름" class="slide level2">
 <h2>데모 흐름</h2>
-<p><br></p>
-<p>오늘은 API 호출을 줄이기 위해 범위를 작게 잡습니다.</p>
-<p><br></p>
-<p><strong>2024년 교육부 데이터</strong> 만으로 workflow 를 확인합니다.</p>
 <p><br></p>
 <ol type="1">
 <li>예시 프롬프트 실행</li>
@@ -470,13 +661,15 @@
 <section id="예시-프롬프트" class="slide level2">
 <h2>예시 프롬프트</h2>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>열린재정 세출/지출 결산현황 데이터 중 2024년 교육부 자료만 수집하고,</span>
-<span id="cb3-2"><a href=""></a>엑셀에서 피벗 테이블로 분석할 수 있도록 tidy CSV 파일로 변환해줘.</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a>API 호출을 줄이기 위해 2024년, 소관=교육부 범위로만 실행해줘.</span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>작업 후에는 생성된 폴더 위치, CSV 파일명, 행 수,</span>
-<span id="cb3-7"><a href=""></a>그리고 사람이 엑셀에서 확인해야 할 항목을 정리해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>현재 프로젝트는 korea-fiscal-skills 저장소입니다.</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>열린재정 세출/지출 결산현황 데이터 중 2024년 교육부 자료만 수집하고,</span>
+<span id="cb4-4"><a href=""></a>엑셀에서 피벗 테이블로 분석할 수 있도록 tidy CSV 파일로 변환해줘.</span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>API 호출을 줄이기 위해 2024년, 소관=교육부 범위로만 실행해줘.</span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a>작업 후에는 생성된 폴더 위치, CSV 파일명, 행 수,</span>
+<span id="cb4-9"><a href=""></a>그리고 사람이 엑셀에서 확인해야 할 항목을 정리해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="실행-후-확인할-것" class="slide level2">
 <h2>실행 후 확인할 것</h2>
@@ -514,26 +707,78 @@
 </tbody>
 </table>
 </section>
-<section id="피벗-테이블에서-볼-질문" class="slide level2">
-<h2>피벗 테이블에서 볼 질문</h2>
+<section id="피벗-테이블로-분석표-만들기" class="slide level2">
+<h2>피벗 테이블로 분석표 만들기</h2>
 <p><br></p>
-<p>피벗 테이블은 정답을 주는 도구가 아니라, 질문을 빠르게 바꾸는 도구입니다.</p>
+<p>전처리된 분석용 CSV(processed tidy CSV)를 바로 보고 끝내지 않습니다.</p>
 <p><br></p>
-<ul>
-<li>교육부 안에서 회계별 지출 규모는 어떻게 다른가?</li>
-<li>분야·부문별 지출계획현액과 지출순액은 어떻게 다른가?</li>
-<li>분야별로 집행률 차이가 보이는가?</li>
-<li>집행률이 낮은 항목은 어떤 공통점이 있는가?</li>
-</ul>
+<p>피벗 테이블로 질문별 요약표를 만들면, 그 요약표가 첫 번째 <strong>derived 데이터</strong> 가 됩니다.</p>
 <p><br></p>
-<p>질문을 바꾸면서 피벗 구성을 바꿔 봅니다.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>분석 질문</th>
+<th>피벗 테이블 구성</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>회계별 지출 규모는?</td>
+<td>행: 회계명 / 값: 지출순액 합계</td>
+</tr>
+<tr class="even">
+<td>분야별 집행률 차이는?</td>
+<td>행: 분야명 / 값: 지출계획현액 합계, 지출순액 합계</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="피벗-테이블-예시-더-보기" class="slide level2">
+<h2>피벗 테이블 예시 더 보기</h2>
+<p><br></p>
+<p>같은 CSV 에서 다른 질문도 이어서 만들 수 있습니다.</p>
+<p><br></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>분석 질문</th>
+<th>피벗 테이블 구성</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>부문별 지출 비중은?</td>
+<td>행: 부문명 / 값: 지출순액 합계</td>
+</tr>
+<tr class="even">
+<td>집행률이 낮은 항목은?</td>
+<td>행: 분야명 또는 사업명 / 값: 집행률</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="피벗-분석-프롬프트-예시" class="slide level2">
+<h2>피벗 분석 프롬프트 예시</h2>
+<p><br></p>
+<p>전처리된 분석용 CSV(processed tidy CSV)를 기준으로 피벗 테이블 구성을 먼저 제안받을 수 있습니다.</p>
+<p><br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>이 CSV 로 교육부 회계별 지출 규모를 보려면</span>
+<span id="cb5-2"><a href=""></a>엑셀 피벗 테이블에서 행, 열, 값에 무엇을 넣어야 하는지 알려줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>분야별 집행률을 비교하고 싶어.</span>
+<span id="cb6-2"><a href=""></a>필요한 값 필드와 계산 필드를 어떻게 만들지 설명해줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>집행률이 낮은 항목을 찾기 위한 피벗 테이블 구성을 제안해줘.</span>
+<span id="cb7-2"><a href=""></a>0 분모 처리와 정렬 기준도 함께 알려줘.</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="집행률-계산" class="slide level2">
 <h2>집행률 계산</h2>
 <p><br></p>
-<p>오늘 사용할 기본 계산식입니다.</p>
+<p>피벗 테이블에서 합계를 만든 뒤, 오늘은 아래 계산식으로 집행률을 봅니다.</p>
 <p><br></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>집행률 = 지출순액 / 지출계획현액</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>집행률 = 지출순액 / 지출계획현액</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <p>확인할 점:</p>
 <ul>
@@ -555,7 +800,7 @@
 <p>대신 아래 네 가지를 남깁니다.</p>
 <p><br></p>
 <ol type="1">
-<li>내가 설명할 수 있는 열린재정 workflow</li>
+<li>내가 설명할 수 있는 열린재정 작업 흐름</li>
 <li>에이전트가 만든 CSV 파일 위치</li>
 <li>엑셀 피벗 테이블에서 확인한 분석 결과</li>
 <li>다음에 더 묻고 싶은 분석 질문</li>
@@ -564,22 +809,35 @@
 <section id="왜-도구-독립성이-중요한가" class="slide level2">
 <h2>왜 도구 독립성이 중요한가</h2>
 <p><br></p>
-<p>지금은 Claude Cowork 로 배웁니다.</p>
+<p>지금은 Claude Code 와 Codex 로 에이전트 스킬을 개발합니다.</p>
 <p><br></p>
-<p>하지만 실무 적용에서는 서울대에서 허가된 LLM API 를 사용해야 합니다.</p>
+<p>핵심은 대화창이 아니라 파일로 남긴 스킬, 입력, 검증 기준입니다.</p>
 <p><br></p>
-<p>그래서 후반부에는 같은 workflow, 같은 데이터, 같은 검증 기준을 Pi/Kaon 기반 환경으로 옮길 수 있는지 확인합니다.</p>
+<p>그래서 같은 작업을 서울대에서 허가된 LLM API 환경에서도 실행할 수 있어야 합니다.</p>
+</section>
+<section id="pi-agent-로-이어가기" class="slide level2">
+<h2>Pi Agent 로 이어가기</h2>
 <p><br></p>
-<blockquote>
-<p>대화창이 아니라 workflow 와 파일로 남긴 맥락이 있어야 도구를 바꿀 수 있습니다.</p>
-</blockquote>
+<p>Pi Agent 는 서울대 LLM API 를 사용해 에이전트를 실행해 보기 위한 실험 환경입니다.</p>
+<p><br></p>
+<p>전략은 단순합니다.</p>
+<ol type="1">
+<li>Claude Code 와 Codex 로 스킬을 개발한다</li>
+<li>입력, 작업 흐름, 검증 기준을 파일로 남긴다</li>
+<li>같은 스킬을 Pi Agent 에서도 실행해 본다</li>
+</ol>
 </section>
 <section id="다음-주로-이어가기" class="slide level2">
 <h2>다음 주로 이어가기</h2>
 <p><br></p>
-<p>다음부터는 오늘 만든 CSV 와 피벗 분석을 출발점으로 삼습니다.</p>
+<p>다음부터는 오늘 만든 CSV 와 피벗 분석을 바탕으로 각자 프로젝트 산출물을 만듭니다.</p>
 <p><br></p>
+<div class="schedule-table">
 <table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>주차</th>
@@ -588,27 +846,32 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>W8</td>
-<td>각자 분석 질문과 산출물 후보 정리</td>
+<td>8-9주차</td>
+<td>프로젝트 산출물 만들기</td>
 </tr>
 <tr class="even">
-<td>W9</td>
-<td>자연어 질의, 차트, 보고서 시안</td>
+<td>10주차</td>
+<td>오프라인 교육: 산출물을 에이전트 스킬로 만들기, Pi Agent 사용</td>
 </tr>
 <tr class="odd">
-<td>W10</td>
-<td>반복 실행 가능한 스크립트 또는 간단 UI</td>
+<td>11주차</td>
+<td>중간보고서 제출</td>
 </tr>
 <tr class="even">
-<td>W11</td>
-<td>막힌 부분 페어 해결과 검증 보강</td>
+<td>12-13주차</td>
+<td>프로젝트 산출물과 스킬 계속 발전</td>
+</tr>
+<tr class="odd">
+<td>14주차</td>
+<td>오프라인 교육: 스킬 개발 이슈 해결, 최종 발표 준비</td>
+</tr>
+<tr class="even">
+<td>15-16주차</td>
+<td>최종 결과 보고서 제출</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<blockquote>
-<p>작은 workflow 하나를 정확히 설명하는 것이 자동화의 시작입니다.</p>
-</blockquote>
+</div>
 
 </section></section>
     </div>
@@ -792,12 +1055,12 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 6.0e-2,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
